@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout & Software License — VaultAI</title>
+  <meta name="description" content="Secure checkout and download for VaultAI Desktop Enterprise Edition." />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-grid-pattern min-h-screen flex flex-col justify-between">
+
+<!-- Navbar -->
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <i data-lucide="shield-check" class="w-5 h-5"></i>
+      </div>
+      <span>Vault<span class="text-indigo-400">AI</span></span>
+    </a>
+    
+    <div class="flex items-center gap-2 text-xs text-slate-400">
+      <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-400"></i>
+      <span>256-bit Encrypted Checkout</span>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Checkout Container -->
+<main class="flex-1 container max-w-5xl py-28 px-4">
+  <div class="mb-8">
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" id="page-title">
+      Complete Your License Setup
+    </h1>
+    <p class="text-slate-400 text-sm mt-1" id="page-sub">
+      Your 7-day trial activates immediately. Your offline software executable unlocks upon completion.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- Left Column: Order Summary -->
+    <div class="lg:col-span-5 space-y-6">
+      <div class="card p-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">License Summary</span>
+          <span class="mono text-xs text-indigo-400 font-semibold" id="plan-badge">PRO EDITION</span>
+        </div>
+
+        <div class="py-4 space-y-2">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base" id="plan-name">VaultAI Pro — Early Bird</h3>
+              <p class="text-xs text-slate-400" id="plan-detail">Offline Desktop License · Billed Monthly</p>
+            </div>
+            <span class="font-bold text-lg text-white" id="plan-price">₹1,999/mo</span>
+          </div>
+
+          <!-- Included Package -->
+          <div class="mt-4 p-3 rounded bg-slate-900 border border-slate-800 space-y-1.5 text-xs text-slate-300">
+            <div class="font-semibold text-slate-200 flex items-center gap-1.5">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-indigo-400"></i>
+              Included with License:
+            </div>
+            <div class="text-[11px] text-slate-400 pl-5">
+              • Full Offline Desktop Application (.exe)<br />
+              • Instant Search, Q&A & Multi-Doc Summarization
+            </div>
+          </div>
+        </div>
+
+        <!-- Trial status -->
+        <div class="p-3.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+          <span id="trial-notice">7-day free trial included. No charge applied today.</span>
+        </div>
+
+        <div class="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between">
+          <span class="text-sm text-slate-400">Due Today</span>
+          <span class="text-2xl font-extrabold text-emerald-400" id="due-today">₹0</span>
+        </div>
+        <p class="text-[11px] text-slate-500 mt-1 text-right" id="after-trial-note">
+          Recurring: ₹1,999/month after 7-day evaluation.
+        </p>
+      </div>
+
+      <!-- Guarantees -->
+      <div class="card p-5 space-y-3 text-xs text-slate-400">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="download" class="w-4 h-4 text-indigo-400"></i>
+          <span>Instant .exe download mirror unlocked after authorization</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="key" class="w-4 h-4 text-indigo-400"></i>
+          <span>Perpetual offline cryptographic activation key</span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="x-circle" class="w-4 h-4 text-indigo-400"></i>
+          <span>Cancel anytime in 1 click with zero questions asked</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Payment & Google Auth Form -->
+    <div class="lg:col-span-7 card p-6 sm:p-8">
+      
+      <!-- Option 1: Fast Google Auth & Verification -->
+      <div class="mb-6 pb-6 border-b border-slate-800">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Fast Verification</span>
+          <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
+            <i data-lucide="zap" class="w-3 h-3"></i> 1-Click Activation
+          </span>
+        </div>
+
+        <div id="google-btn-wrap" class="flex justify-center w-full mb-2">
+          <div id="g_id_onload"
+               data-client_id="591155060436-2f51vku1ubd3cs2cblgh7k1i23ddfaa3.apps.googleusercontent.com"
+               data-callback="handleGooglePaymentAuth"
+               data-auto_prompt="false">
+          </div>
+          <div class="g_id_signin"
+               data-type="standard"
+               data-shape="rectangular"
+               data-theme="filled_black"
+               data-text="continue_with"
+               data-size="large"
+               data-logo_alignment="left"
+               data-width="420">
+          </div>
+        </div>
+
+        <button class="btn-google" id="customPayGoogleBtn" onclick="triggerGooglePayAuth()">
+          <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+          <span>Verify with Google Account</span>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-[1px] flex-1 bg-slate-800"></div>
+        <span class="text-xs uppercase tracking-wider text-slate-500">Or Pay with Card / UPI</span>
+        <div class="h-[1px] flex-1 bg-slate-800"></div>
+      </div>
+
+      <!-- Payment Method Form -->
+      <form id="paymentForm" onsubmit="handlePaymentSubmit(event)" class="space-y-4">
+        
+        <!-- Card Details -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="card-name">
+            Cardholder Name
+          </label>
+          <input
+            type="text"
+            id="card-name"
+            placeholder="Arjun Sharma"
+            required
+            class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="card-num">
+            Card Number
+          </label>
+          <div class="relative">
+            <input
+              type="text"
+              id="card-num"
+              placeholder="4242 •••• •••• 4242"
+              maxlength="19"
+              required
+              oninput="formatCardInput(this)"
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors font-mono"
+            />
+            <div class="absolute right-3 top-2.5 flex items-center gap-1.5">
+              <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">VISA</span>
+              <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">MC</span>
+              <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">RUPAY</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="card-exp">
+              Expiry Date
+            </label>
+            <input
+              type="text"
+              id="card-exp"
+              placeholder="MM / YY"
+              maxlength="7"
+              required
+              oninput="formatExpInput(this)"
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors font-mono"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="card-cvv">
+              CVV / CVC
+            </label>
+            <input
+              type="password"
+              id="card-cvv"
+              placeholder="•••"
+              maxlength="4"
+              required
+              class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors font-mono"
+            />
+          </div>
+        </div>
+
+        <!-- UPI / Alternative field -->
+        <div class="pt-3 border-t border-slate-800/80">
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="upi-id">
+            Or Virtual Payment Address (UPI ID)
+          </label>
+          <input
+            type="text"
+            id="upi-id"
+            placeholder="username@okhdfcbank / yourname@upi"
+            class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-800 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+          />
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn btn-primary w-full py-3.5 mt-4 text-base font-semibold">
+          <span>Authorize License & Download</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- ── Post-Payment Download & Activation Modal ── -->
+<div id="download-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+  <div class="w-full max-w-2xl card p-8 sm:p-10 border-indigo-500/30 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+    
+    <div class="text-center mb-6">
+      <div class="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="check" class="w-7 h-7"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-white tracking-tight">Payment Verified & License Issued!</h2>
+      <p class="text-slate-400 text-xs mt-1">Your offline software executable and license credentials are ready.</p>
+    </div>
+
+    <!-- License Key box -->
+    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 mb-6">
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+        <span class="font-semibold uppercase tracking-wider text-indigo-400">Your Standalone License Key</span>
+        <span class="text-emerald-400 font-mono">STATUS: ACTIVE</span>
+      </div>
+      <div class="flex items-center justify-between gap-3">
+        <code class="mono text-base font-bold text-white tracking-wider" id="license-key-display">
+          VAULT-2025-E91X-PRO-7892
+        </code>
+        <button onclick="copyLicenseKey()" class="btn btn-secondary text-xs px-3 py-1.5 flex items-center gap-1.5">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span id="copy-btn-text">Copy Key</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Software Download Button -->
+    <div class="p-5 rounded-xl bg-gradient-to-r from-indigo-950/60 to-slate-900 border border-indigo-500/30 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <div class="font-bold text-white text-sm flex items-center gap-2">
+          <i data-lucide="package" class="w-4 h-4 text-indigo-400"></i>
+          <span>VaultAI Desktop Installer (.exe)</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-0.5">
+          Version 1.2.0 · Windows 64-bit · Includes Embedded Model Runtime
+        </p>
+      </div>
+      
+      <button onclick="simulateDownload()" id="download-exe-btn" class="btn btn-primary px-5 py-2.5 text-xs font-bold">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Download .exe (~85 MB)</span>
+      </button>
+    </div>
+
+    <!-- Quick Start Guide -->
+    <div class="space-y-2 text-xs text-slate-400 border-t border-slate-800 pt-5">
+      <div class="font-semibold text-slate-200 mb-2">Next Steps to Launch:</div>
+      <div class="flex items-start gap-2">
+        <span class="mono text-indigo-400 font-bold">1.</span>
+        <span>Run the downloaded installer on your machine (no admin privileges required).</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="mono text-indigo-400 font-bold">2.</span>
+        <span>Paste your license key when prompted to activate offline local hardware engine.</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="mono text-indigo-400 font-bold">3.</span>
+        <span>Drag and drop your confidential PDFs or DOCX files to begin querying privately!</span>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-4 text-center">
+      <a href="index.html" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+        ← Return to Homepage
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="notif" id="notif">
+  <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+  <span id="notif-text">Completed</span>
+</div>
+
+<script src="script.js"></script>
+<script>
+  if (window.lucide) lucide.createIcons();
+
+  // Read plan & duration parameters
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan');
+  const duration = params.get('duration') || '12m';
+
+  const durationLabels = {
+    '12m': '12 Months Access',
+    '24m': '24 Months Access',
+    '48m': '48 Months Access',
+    'lifetime': 'Lifetime Unrestricted Access'
+  };
+  const durLabel = durationLabels[duration] || '12 Months Access';
+
+  if (plan === 'basic') {
+    document.getElementById('plan-name').textContent = 'VaultAI Basic Workspace';
+    document.getElementById('plan-badge').textContent = 'BASIC WORKSPACE';
+    document.getElementById('plan-detail').textContent = 'Standard Windows setup · Default local Ollama model · Billed monthly per workspace';
+    document.getElementById('plan-price').textContent = '₹2,699/mo';
+    document.getElementById('after-trial-note').textContent = '7-Day Free Trial included. Recurring ₹2,699/mo per workspace.';
+  } else if (plan === 'custom') {
+    document.getElementById('plan-name').textContent = 'VaultAI Custom Workspace (Most Popular)';
+    document.getElementById('plan-badge').textContent = 'CUSTOM WORKSPACE';
+    document.getElementById('plan-detail').textContent = 'Configured workflow (HR/Tender/Logistics) · Custom Ollama model · Guided onboarding';
+    document.getElementById('plan-price').textContent = '₹3,999/mo';
+    document.getElementById('after-trial-note').textContent = '7-Day Free Trial included. Recurring ₹3,999/mo per workspace.';
+  } else if (plan === 'trial') {
+    document.getElementById('page-title').textContent = 'Activate Free Evaluation License';
+    document.getElementById('plan-name').textContent = 'VaultAI 7-Day Free Trial';
+    document.getElementById('plan-price').textContent = '₹0';
+    document.getElementById('plan-badge').textContent = 'EVALUATION';
+  }
+
+  function formatCardInput(el) {
+    let v = el.value.replace(/\D/g, '').substring(0, 16);
+    el.value = v.replace(/(.{4})/g, '$1 ').trim();
+  }
+
+  function formatExpInput(el) {
+    let v = el.value.replace(/\D/g, '').substring(0, 4);
+    if (v.length >= 2) v = v.substring(0, 2) + ' / ' + v.substring(2);
+    el.value = v;
+  }
+
+  function handleGooglePaymentAuth(response) {
+    showNotif('Google identity verified! Generating license…');
+    setTimeout(() => {
+      openDownloadModal();
+    }, 1200);
+  }
+
+  function triggerGooglePayAuth() {
+    if (window.google && window.google.accounts) {
+      google.accounts.id.prompt();
+    } else {
+      showNotif('Google verification successful!');
+      setTimeout(() => {
+        openDownloadModal();
+      }, 1000);
+    }
+  }
+
+  function handlePaymentSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i><span>Authorizing…</span>';
+    btn.disabled = true;
+    if (window.lucide) lucide.createIcons();
+
+    setTimeout(() => {
+      openDownloadModal();
+    }, 1500);
+  }
+
+  function openDownloadModal() {
+    const modal = document.getElementById('download-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    if (window.lucide) lucide.createIcons();
+  }
+
+  function copyLicenseKey() {
+    const key = document.getElementById('license-key-display').textContent.trim();
+    navigator.clipboard.writeText(key).then(() => {
+      document.getElementById('copy-btn-text').textContent = 'Copied!';
+      showNotif('License key copied to clipboard');
+      setTimeout(() => {
+        document.getElementById('copy-btn-text').textContent = 'Copy Key';
+      }, 2000);
+    });
+  }
+
+  function simulateDownload() {
+    showNotif('Starting VaultAI_Desktop_v1.2_Setup.exe download…');
+    const dlBtn = document.getElementById('download-exe-btn');
+    dlBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i><span>Downloading…</span>';
+    
+    // Create simulated file trigger
+    const blob = new Blob([
+      "VaultAI Desktop Executable Package\nVersion: 1.2.0\nLicense: " + 
+      document.getElementById('license-key-display').textContent.trim()
+    ], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'VaultAI_Setup.exe';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  window.addEventListener('load', () => {
+    const gsiBtn = document.querySelector('.g_id_signin iframe');
+    if (gsiBtn) {
+      const customBtn = document.getElementById('customPayGoogleBtn');
+      if (customBtn) customBtn.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

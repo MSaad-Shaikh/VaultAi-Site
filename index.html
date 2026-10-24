@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VaultAI — Search your company documents</title>
+  <meta name="description" content="Search company policies, tenders and operating documents with VaultAI. Ask questions and check the source passages behind each answer." />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Design Tokens & Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-grid-pattern">
+
+<!-- ── Navbar ── -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-icon">
+        <i data-lucide="shield-check" class="w-5 h-5"></i>
+      </div>
+      <span>Vault<span class="text-indigo-400">AI</span></span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#comparison">Why VaultAI</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href="#pricing" class="btn btn-primary text-sm">
+        <span>View plans</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero-section">
+  <div class="hero-glow"></div>
+  
+  <div class="container hero-content">
+    <h1 class="hero-title reveal reveal-delay-1">
+      Find answers in your company documents.<br />
+      <span class="gradient-text">Check the source for yourself.</span>
+    </h1>
+
+    <p class="hero-subtitle reveal reveal-delay-2">
+      Ask about policies, tenders, and operating files. VaultAI searches the documents you add and links answers back to their source.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-3 reveal reveal-delay-3">
+      <a href="#pricing" class="btn btn-primary px-6 py-3 text-base">
+        <span>View plans</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="#how" class="btn btn-secondary px-6 py-3 text-base">
+        <span>See How It Works</span>
+        <i data-lucide="play" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <!-- Preview mockup -->
+    <div class="preview-container reveal reveal-delay-4">
+      <div class="preview-card">
+        <div class="preview-header">
+          <div class="window-dots">
+            <span class="window-dot dot-red"></span>
+            <span class="window-dot dot-yellow"></span>
+            <span class="window-dot dot-green"></span>
+          </div>
+          <div class="window-status mono">
+            <i data-lucide="hard-drive" class="w-3.5 h-3.5 text-indigo-400"></i>
+            <span>VaultAI — Document workspace preview</span>
+          </div>
+          <div class="text-xs text-slate-500 font-mono">v1.2-desktop</div>
+        </div>
+        <div class="bg-slate-950 p-2">
+          <img
+            src="app-preview.jpeg"
+            alt="VaultAI Local Dashboard"
+            class="w-full rounded-b-lg border border-slate-800/80 shadow-2xl object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How it works ── -->
+<section class="workflow-section" id="how">
+  <div class="container">
+    <div class="workflow-heading">
+      <span class="workflow-kicker">A practical workflow</span>
+      <h2>Go from a folder of files to an answer you can verify</h2>
+      <p>VaultAI searches the material you add and shows the passages behind its response.</p>
+    </div>
+
+    <div class="workflow-steps">
+      <article class="workflow-step">
+        <span class="workflow-number">01</span>
+        <div class="workflow-step-copy"><span class="workflow-label">Your files</span><h3>Choose a folder</h3><p>Add the PDFs, Word files, and text documents your team already uses.</p></div>
+        <i data-lucide="folder-open" aria-hidden="true"></i>
+      </article>
+      <article class="workflow-step">
+        <span class="workflow-number">02</span>
+        <div class="workflow-step-copy"><span class="workflow-label">Preparation</span><h3>VaultAI reads and indexes</h3><p>It prepares the document text so relevant passages can be found later.</p></div>
+        <i data-lucide="scan-text" aria-hidden="true"></i>
+      </article>
+      <article class="workflow-step">
+        <span class="workflow-number">03</span>
+        <div class="workflow-step-copy"><span class="workflow-label">Your question</span><h3>Ask about the material</h3><p>Ask in everyday language and get a response based on matching content.</p></div>
+        <i data-lucide="messages-square" aria-hidden="true"></i>
+      </article>
+      <article class="workflow-step">
+        <span class="workflow-number">04</span>
+        <div class="workflow-step-copy"><span class="workflow-label">Check the answer</span><h3>Open the cited source</h3><p>Review the referenced file and passage before using the answer.</p></div>
+        <i data-lucide="files" aria-hidden="true"></i>
+      </article>
+    </div>
+
+    <div class="workflow-preview" role="img" aria-label="Placeholder for a VaultAI MVP screenshot">
+      <div class="workflow-preview-window"><span></span><span></span><span></span><b>VaultAI workspace</b></div>
+      <div class="workflow-preview-body"><i data-lucide="image" aria-hidden="true"></i><strong>MVP screenshot coming soon</strong><p>We’ll replace this space with a real product view.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ── Features ── -->
+<section class="py-20 border-t border-slate-800/80" id="features">
+  <div class="container">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <div class="badge badge-emerald mb-3">The essentials</div>
+      <h2 class="text-3xl font-extrabold text-white tracking-tight">Tools for working with company files</h2>
+      <p class="text-slate-400 mt-2 text-sm">A focused set of tools for finding and checking information in your documents.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <article class="card">
+        <div class="card-icon"><i data-lucide="cpu" class="w-5 h-5"></i></div>
+        <h3 class="text-base font-bold text-white mb-2">Local models</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Use supported Ollama models on the computer where VaultAI is set up.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i data-lucide="quote" class="w-5 h-5"></i></div>
+        <h3 class="text-base font-bold text-white mb-2">Answers with sources</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Review the supporting passage and page details when the document provides them.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i data-lucide="folder-search" class="w-5 h-5"></i></div>
+        <h3 class="text-base font-bold text-white mb-2">A document library</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Upload, search, re-index, and remove files from the workspace.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- ── Why VaultAI ── -->
+<section class="comparison-section" id="comparison">
+  <div class="comparison-container">
+    <div class="comparison-story">
+      <div class="comparison-story-main">
+        <div class="comparison-eyebrow"><i data-lucide="shield-check" aria-hidden="true"></i><span>Why VaultAI</span></div>
+        <h2>Search the files your team already relies on.</h2>
+        <p>Ask about internal policies, tenders, and operating documents. VaultAI searches the files you add and shows which passages support its answer.</p>
+        <div class="comparison-brand-line"><span class="comparison-brand-icon"><i data-lucide="shield-check" aria-hidden="true"></i></span><span><strong>VaultAI</strong><small>Local document assistant powered by Ollama</small></span></div>
+      </div>
+      <div class="comparison-use-cases" aria-label="Common VaultAI use cases">
+        <article class="comparison-use-case"><span class="comparison-use-icon"><i data-lucide="file-search" aria-hidden="true"></i></span><div><h3>Tenders &amp; RFPs</h3><p>Find requirements and review the cited clause.</p></div></article>
+        <article class="comparison-use-case"><span class="comparison-use-icon"><i data-lucide="book-open" aria-hidden="true"></i></span><div><h3>HR policies</h3><p>Find handbook details and check the source passage.</p></div></article>
+        <article class="comparison-use-case"><span class="comparison-use-icon"><i data-lucide="layers" aria-hidden="true"></i></span><div><h3>Logistics &amp; operations</h3><p>Search procedures, manifests, and service documents.</p></div></article>
+      </div>
+    </div>
+    <p class="comparison-setup-note">VaultAI uses local Ollama models after setup. Model downloads need an internet connection; performance depends on the computer and model.</p>
+  </div>
+</section>
+<!-- ── Pricing ── -->
+<section class="py-24 border-t border-slate-800/80 bg-slate-950/30" id="pricing">
+  <div class="container pricing-wrapper">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <div class="badge mb-3">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-400"></i>
+        Workspace Licensing
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Simple Pricing for Local Team Workspaces</h2>
+      <p class="text-slate-400 mt-2 text-sm sm:text-base">
+        Billed <span class="text-white font-semibold">per local team workspace per month</span>, with local Ollama execution and predictable query pricing.
+      </p>
+    </div>
+
+    <!-- 2 Main Plans Grid -->
+    <div class="pricing-showcase-grid-2">
+      <!-- 1. Basic Workspace Plan -->
+      <div class="pricing-plus-card" id="card-basic">
+        <div>
+          <div class="card-tier-header">
+            <span class="card-tier-sparkle">
+              <svg class="w-4 h-4 fill-amber-400 text-amber-400" viewBox="0 0 24 24">
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+              </svg>
+            </span>
+            <span class="card-tier-name">VaultAI Basic</span>
+          </div>
+
+          <div class="workspace-badge">
+            <i data-lucide="building-2" class="w-3 h-3"></i>
+            Per local team workspace
+          </div>
+
+          <!-- Price Display -->
+          <div class="price-row">
+            <div class="flex items-baseline">
+              <span class="price-current" id="price-basic">₹2,699</span>
+              <span class="billing-cycle-sub">/ month</span>
+            </div>
+            <div class="price-original-wrapper">
+              <span class="price-original" id="original-basic">₹4,499</span>
+              <span class="discount-pill">
+                <i data-lucide="tag" class="w-3 h-3"></i>
+                <span id="discount-basic">Launch Special</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Urgency Countdown Box -->
+          <div class="urgency-timer-box">
+            <div class="urgency-label">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i>
+              <span>Special rate active for</span>
+            </div>
+            <div class="urgency-counter">
+              <div class="timer-slot"><span class="timer-num countdown-days">00</span><span class="timer-unit">days</span></div>
+              <div class="timer-slot"><span class="timer-num countdown-hrs">11</span><span class="timer-unit">hrs</span></div>
+              <div class="timer-slot"><span class="timer-num countdown-mins">56</span><span class="timer-unit">mins</span></div>
+              <div class="timer-slot"><span class="timer-num countdown-secs">07</span><span class="timer-unit">secs</span></div>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <a href="payment.html?plan=basic" class="pricing-action-btn btn-white" id="cta-basic">
+            Get Basic Workspace License
+          </a>
+
+          <!-- What it includes -->
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">What's included:</div>
+          <ul class="plus-features-list">
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Standard Windows Setup (<code class="mono text-xs text-indigo-300">VaultAI-Setup.exe</code>)</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Default Ollama Model (<strong class="text-white">Qwen2.5 3B</strong> + <strong class="text-white">nomic-embed</strong>)</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Document Q&A with Direct Clickable Page Citations</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Unlimited Local Document Processing & Queries</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Basic Technical Support & Software Updates for Team</span>
+            </li>
+            <li class="plus-feature-item disabled">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>HR, Tender & Logistics Workflow Setup</span>
+            </li>
+            <li class="plus-feature-item disabled">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Guided 1-on-1 Onboarding Call</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. Custom Workspace Plan (Most Popular) -->
+      <div class="pricing-plus-card is-popular" id="card-custom">
+        <div class="popular-banner-tab">Most popular for Teams</div>
+        <div>
+          <div class="card-tier-header">
+            <span class="card-tier-sparkle">
+              <svg class="w-4 h-4 fill-amber-400 text-amber-400" viewBox="0 0 24 24">
+                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+              </svg>
+            </span>
+            <span class="card-tier-name">VaultAI Custom</span>
+          </div>
+
+          <div class="workspace-badge">
+            <i data-lucide="sparkles" class="w-3 h-3 text-cyan-300"></i>
+            Configured workflow + Ollama model setup
+          </div>
+
+          <!-- Price Display -->
+          <div class="price-row">
+            <div class="flex items-baseline">
+              <span class="price-current" id="price-custom">₹3,999</span>
+              <span class="billing-cycle-sub">/ month</span>
+            </div>
+            <div class="price-original-wrapper">
+              <span class="price-original" id="original-custom">₹5,999</span>
+              <span class="discount-pill">
+                <i data-lucide="tag" class="w-3 h-3"></i>
+                <span id="discount-custom">Recommended</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Urgency Countdown Box -->
+          <div class="urgency-timer-box">
+            <div class="urgency-label">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i>
+              <span>Special rate active for</span>
+            </div>
+            <div class="urgency-counter">
+              <div class="timer-slot"><span class="timer-num countdown-days">00</span><span class="timer-unit">days</span></div>
+              <div class="timer-slot"><span class="timer-num countdown-hrs">11</span><span class="timer-unit">hrs</span></div>
+              <div class="timer-slot"><span class="timer-num countdown-mins">56</span><span class="timer-unit">mins</span></div>
+              <div class="timer-slot"><span class="timer-num countdown-secs">07</span><span class="timer-unit">secs</span></div>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <a href="payment.html?plan=custom" class="pricing-action-btn btn-blue" id="cta-custom">
+            Get Custom Workspace License
+          </a>
+
+          <!-- What it includes -->
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">What's included:</div>
+          <ul class="plus-features-list">
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong class="text-white">All Basic features included</strong> (Windows setup & unlimited Q&A)</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Workflow configuration for <strong class="text-white">HR, Tender, or Logistics</strong></span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Configuration of a <strong class="text-white">supported local Ollama model</strong> of choice</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong class="text-white">Guided Onboarding Call</strong> with step-by-step setup walkthrough</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Local Network (LAN) Workgroup sharing across office workstations</span>
+            </li>
+            <li class="plus-feature-item">
+              <svg class="plus-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Priority technical support & all VaultAI software updates</span>
+            </li>
+          </ul>
+
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400">
+            * <strong class="text-slate-300">Custom Model Note:</strong> The subscription pays for the VaultAI software, updates, and support. “Custom model” means selecting and calibrating an existing supported Ollama model (e.g. Qwen2.5, Llama, Mistral) and configuring custom department workflows—not training a new AI model from scratch.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suggested customer setup flow -->
+    <div class="how-it-works-box">
+      <div class="setup-heading">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i data-lucide="workflow" class="w-4 h-4"></i>
+          </div>
+          <div><span class="workflow-kicker">From purchase to first question</span><h3 class="text-lg font-bold text-white">Get VaultAI running</h3></div>
+        </div>
+        <span class="mono text-xs text-slate-400">Windows 10 / 11 · 64-bit</span>
+      </div>
+
+      <div class="setup-steps">
+        <div class="how-step-card"><span class="setup-step-number">01</span><div><div class="font-bold text-white text-sm mb-1">Choose a plan</div><p class="text-xs text-slate-400 leading-relaxed">Pick the standard setup or request a configuration for your team.</p></div></div>
+        <div class="how-step-card"><span class="setup-step-number">02</span><div><div class="font-bold text-white text-sm mb-1">Download the installer</div><p class="text-xs text-slate-400 leading-relaxed">Get the Windows app from the customer download page.</p></div></div>
+        <div class="how-step-card"><span class="setup-step-number">03</span><div><div class="font-bold text-white text-sm mb-1">Install the local model</div><p class="text-xs text-slate-400 leading-relaxed">The setup downloads Ollama and the selected model. Allow a few GB of disk space.</p></div></div>
+        <div class="how-step-card"><span class="setup-step-number">04</span><div><div class="font-bold text-white text-sm mb-1">Open your workspace</div><p class="text-xs text-slate-400 leading-relaxed">Launch VaultAI, add team documents, and start asking questions.</p></div></div>
+      </div>
+
+      <div class="setup-note"><i data-lucide="info" aria-hidden="true"></i><p>Internet is needed for checkout and the initial model download. After setup, document questions run on the configured computer using Ollama.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="py-20 border-t border-slate-800/80" id="faq">
+  <div class="container max-w-3xl">
+    <div class="text-center mb-12">
+      <div class="badge mb-3">FAQ</div>
+      <h2 class="text-3xl font-extrabold text-white tracking-tight">A few common questions</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="faq-item"><button class="faq-q"><span>Where are my documents processed?</span><i data-lucide="plus" class="w-4 h-4"></i></button><div class="faq-a">VaultAI is designed to process documents with a local Ollama model on the configured computer. Ollama and the model files must be installed first.</div></div>
+      <div class="faq-item"><button class="faq-q"><span>What files can I add?</span><i data-lucide="plus" class="w-4 h-4"></i></button><div class="faq-a">The current workflow is designed for PDF, DOCX, and TXT files. Scanned PDFs may need OCR before their text can be searched.</div></div>
+      <div class="faq-item"><button class="faq-q"><span>How do citations work?</span><i data-lucide="plus" class="w-4 h-4"></i></button><div class="faq-a">When relevant passages are found, answers can reference the source filename and page where available. You can inspect the supporting passage to check the result.</div></div>
+      <div class="faq-item"><button class="faq-q"><span>Will it replace a general AI assistant?</span><i data-lucide="plus" class="w-4 h-4"></i></button><div class="faq-a">VaultAI focuses on questions about your own documents. General assistants are still useful for broad knowledge, writing, and web research.</div></div>
+    </div>
+  </div>
+</section>
+<!-- ── Modern VaultAI Footer ── -->
+<footer class="modern-footer">
+  <div class="container">
+    <!-- Top 5 Navigation & Action Columns -->
+    <div class="footer-nav-grid">
+      <!-- Col 1: Platform & Architecture -->
+      <div>
+        <h4 class="footer-col-title">Platform</h4>
+        <ul class="footer-links-list">
+          <li><a href="#how" class="footer-link">Offline Architecture</a></li>
+          <li><a href="#features" class="footer-link">Local RAG Engine</a></li>
+          <li><a href="#comparison" class="footer-link">Grounding & Citations</a></li>
+          <li><a href="#features" class="footer-link">Vector Store (nomic-embed)</a></li>
+          <li><a href="#features" class="footer-link">LAN Workgroup Sharing</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div>
+        <h4 class="footer-col-title">Solutions</h4>
+        <ul class="footer-links-list">
+          <li><a href="#comparison" class="footer-link">Tender & RFP Analysis</a></li>
+          <li><a href="#comparison" class="footer-link">HR & Policy Handbooks</a></li>
+          <li><a href="#comparison" class="footer-link">Logistics Manifests</a></li>
+          <li><a href="#features" class="footer-link">Contract Diffing</a></li>
+          <li><a href="#how" class="footer-link">Air-Gapped Workplaces</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Supported Models -->
+      <div>
+        <h4 class="footer-col-title">Local Models</h4>
+        <ul class="footer-links-list">
+          <li><a href="https://registry.ollama.com/library/qwen2.5%3A3b" target="_blank" rel="noopener noreferrer" class="footer-link">Qwen2.5 3B (1.9 GB)</a></li>
+          <li><a href="https://registry.ollama.com/library/nomic-embed-text" target="_blank" rel="noopener noreferrer" class="footer-link">nomic-embed-text (274 MB)</a></li>
+          <li><a href="https://ollama.com/library/llama3.2" target="_blank" rel="noopener noreferrer" class="footer-link">Llama 3.2 Offline</a></li>
+          <li><a href="https://ollama.com/library/mistral" target="_blank" rel="noopener noreferrer" class="footer-link">Mistral 7B Local</a></li>
+          <li><a href="https://ollama.com/download/windows" target="_blank" rel="noopener noreferrer" class="footer-link">Ollama for Windows</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Company & Support -->
+      <div>
+        <h4 class="footer-col-title">Support & Plans</h4>
+        <ul class="footer-links-list">
+          <li><a href="#pricing" class="footer-link">Workspace Pricing</a></li>
+          <li><a href="#faq" class="footer-link">FAQ & Technical Specs</a></li>
+          <li><a href="mailto:support@vaultai.local" class="footer-link">Contact Support</a></li>
+          <li><a href="login.html" class="footer-link">Customer License Portal</a></li>
+          <li><a href="#how" class="footer-link">Windows Setup Guide</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Actions & Copyright -->
+      <div class="footer-cta-col">
+        <a href="#pricing" class="footer-btn-blue">Get Workspace License</a>
+        <a href="signup.html" class="footer-btn-dark">Start Free Trial</a>
+        <p class="footer-copyright-text">
+          © 2026 VaultAI Technologies Inc. All rights reserved.<br />
+          Private offline document intelligence on your own hardware.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Row: Social Icons & Legal links -->
+    <div class="footer-bottom-row">
+      <div class="social-icons-wrap">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn x-twitter" aria-label="GitHub">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn x-twitter" aria-label="X (formerly Twitter)">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn linkedin" aria-label="LinkedIn">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn discord" aria-label="Discord">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <span class="footer-legal-divider">·</span>
+        <a href="#">Terms of Service</a>
+        <span class="footer-legal-divider">·</span>
+        <a href="#">End User License Agreement (EULA)</a>
+        <span class="footer-legal-divider">·</span>
+        <a href="#">Offline Air-Gap Compliance</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Giant Subtle Background Watermark: VaultAI -->
+  <div class="footer-giant-watermark" aria-hidden="true">
+    VaultAI
+  </div>
+</footer>
+
+<!-- Toast Notification -->
+<div class="notif" id="notif">
+  <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+  <span id="notif-text">Action completed successfully</span>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Initialize Lucide icons
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+</script>
+</body>
+</html>
