@@ -63,34 +63,57 @@ const pricingData = {
   }
 };
 
-// ── Live Urgency Countdown Timer (ticking) ──
-(function initUrgencyCountdown() {
-  // 11 hours, 56 mins, 7 seconds total in seconds
-  let totalSeconds = 11 * 3600 + 56 * 60 + 7;
+// ── Live Urgency Countdown Timer (Stops at 30 November) ──
+function getTargetDeadline() {
+  const now = new Date();
+  const year = now.getFullYear();
+  // Target: 30 November 23:59:59 (Month is 0-indexed: 10 = November)
+  let deadline = new Date(year, 10, 30, 23, 59, 59);
+  if (now.getTime() > deadline.getTime()) {
+    // If current date is past Nov 30 of this year, roll to next year's Nov 30
+    deadline = new Date(year + 1, 10, 30, 23, 59, 59);
+  }
+  return deadline;
+}
 
-  function pad(num) {
-    return num.toString().padStart(2, '0');
+const saleDeadline = getTargetDeadline();
+
+function pad(num) {
+  return String(Math.max(0, num)).padStart(2, '0');
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const diffMs = saleDeadline.getTime() - now.getTime();
+
+  if (diffMs <= 0) {
+    document.querySelectorAll('.countdown-days').forEach(el => el.textContent = '00');
+    document.querySelectorAll('.countdown-hrs').forEach(el => el.textContent = '00');
+    document.querySelectorAll('.countdown-mins').forEach(el => el.textContent = '00');
+    document.querySelectorAll('.countdown-secs').forEach(el => el.textContent = '00');
+    return;
   }
 
-  function tick() {
-    if (totalSeconds <= 0) {
-      totalSeconds = 24 * 3600; // reset
-    } else {
-      totalSeconds--;
-    }
+  const totalSeconds = Math.floor(diffMs / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hrs = Math.floor((totalSeconds % 86400) / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
 
-    const days = Math.floor(totalSeconds / 86400);
-    const hrs = Math.floor((totalSeconds % 86400) / 3600);
-    const mins = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
+  document.querySelectorAll('.countdown-days').forEach(el => el.textContent = pad(days));
+  document.querySelectorAll('.countdown-hrs').forEach(el => el.textContent = pad(hrs));
+  document.querySelectorAll('.countdown-mins').forEach(el => el.textContent = pad(mins));
+  document.querySelectorAll('.countdown-secs').forEach(el => el.textContent = pad(secs));
+}
 
-    document.querySelectorAll('.countdown-days').forEach(el => el.textContent = pad(days));
-    document.querySelectorAll('.countdown-hrs').forEach(el => el.textContent = pad(hrs));
-    document.querySelectorAll('.countdown-mins').forEach(el => el.textContent = pad(mins));
-    document.querySelectorAll('.countdown-secs').forEach(el => el.textContent = pad(secs));
-  }
-
-  setInterval(tick, 1000);
-  tick();
-})();
+// Ensure execution starts immediately and ticks in synchronized 1-second intervals
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  });
+} else {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
