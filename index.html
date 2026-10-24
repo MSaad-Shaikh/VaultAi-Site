@@ -132,29 +132,126 @@
     </div>
   </div>
 </section>
-<!-- ── Features ── -->
-<section class="py-20 border-t border-slate-800/80" id="features">
+<!-- ── Features Bento Showcase ── -->
+<section class="py-24 border-t border-slate-800/80 bg-slate-950/20" id="features">
   <div class="container">
-    <div class="text-center max-w-xl mx-auto mb-12">
-      <div class="badge badge-emerald mb-3">The essentials</div>
-      <h2 class="text-3xl font-extrabold text-white tracking-tight">Tools for working with company files</h2>
-      <p class="text-slate-400 mt-2 text-sm">A focused set of tools for finding and checking information in your documents.</p>
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="badge badge-emerald mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        Core Capabilities
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Built to search, cite, and verify company files</h2>
+      <p class="text-slate-400 mt-2 text-sm sm:text-base">A focused offline engine designed to interrogate complex contracts, handbooks, and operational files on your machine.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <article class="card">
-        <div class="card-icon"><i data-lucide="cpu" class="w-5 h-5"></i></div>
-        <h3 class="text-base font-bold text-white mb-2">Local models</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">Use supported Ollama models on the computer where VaultAI is set up.</p>
+
+    <div class="feature-bento-grid">
+      <!-- 1. Local Models -->
+      <article class="feature-bento-card">
+        <div class="feature-card-glow"></div>
+        <div>
+          <div class="feature-icon-badge-row">
+            <div class="feature-icon-wrap feature-icon-indigo">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <span class="feature-pill-tag tag-indigo">Ollama on Windows</span>
+          </div>
+          <h3 class="feature-bento-title">Local Models</h3>
+          <p class="feature-bento-desc">
+            Use supported open-weights models running directly on your laptop or office workstation via local Ollama. Zero external API calls or heartbeat pings.
+          </p>
+        </div>
+
+        <!-- Embedded Mini Status Widget -->
+        <div class="feature-mini-widget">
+          <div class="mini-widget-header">
+            <span class="flex items-center gap-1.5 font-medium text-slate-300">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              localhost:11434 · Ollama Ready
+            </span>
+            <span class="mono text-[10px] text-indigo-400">Windows 64-bit</span>
+          </div>
+          <div class="mini-item-row">
+            <span class="font-medium text-slate-200">Qwen2.5 3B</span>
+            <span class="mono text-[11px] text-slate-400">1.9 GB · Active</span>
+          </div>
+          <div class="mini-item-row">
+            <span class="font-medium text-slate-200">nomic-embed-text</span>
+            <span class="mono text-[11px] text-slate-400">274 MB · Embeddings</span>
+          </div>
+        </div>
       </article>
-      <article class="card">
-        <div class="card-icon"><i data-lucide="quote" class="w-5 h-5"></i></div>
-        <h3 class="text-base font-bold text-white mb-2">Answers with sources</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">Review the supporting passage and page details when the document provides them.</p>
+
+      <!-- 2. Answers with Sources -->
+      <article class="feature-bento-card">
+        <div class="feature-card-glow"></div>
+        <div>
+          <div class="feature-icon-badge-row">
+            <div class="feature-icon-wrap feature-icon-emerald">
+              <i data-lucide="quote" class="w-5 h-5"></i>
+            </div>
+            <span class="feature-pill-tag tag-emerald">Zero Hallucinations</span>
+          </div>
+          <h3 class="feature-bento-title">Answers with Sources</h3>
+          <p class="feature-bento-desc">
+            Never guess whether an answer is fabricated. Every response highlights the referenced document title, exact page number, and source passage.
+          </p>
+        </div>
+
+        <!-- Embedded Mini Citation Proof Widget -->
+        <div class="feature-mini-widget">
+          <div class="mini-widget-header">
+            <span class="flex items-center gap-1.5 font-medium text-slate-300">
+              <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+              Verified Source Proof
+            </span>
+            <span class="mono text-[10px] text-emerald-400">Page 18</span>
+          </div>
+          <div class="citation-quote-box">
+            “...early termination penalty is waived if 60-day written notice is provided prior to renewal...”
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+            <span class="truncate max-w-[170px] text-slate-300 font-mono">HR_Handbook_2026.pdf</span>
+            <span class="text-emerald-400 font-semibold flex items-center gap-1">
+              <i data-lucide="check" class="w-3 h-3"></i> Matched
+            </span>
+          </div>
+        </div>
       </article>
-      <article class="card">
-        <div class="card-icon"><i data-lucide="folder-search" class="w-5 h-5"></i></div>
-        <h3 class="text-base font-bold text-white mb-2">A document library</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">Upload, search, re-index, and remove files from the workspace.</p>
+
+      <!-- 3. Document Library -->
+      <article class="feature-bento-card">
+        <div class="feature-card-glow"></div>
+        <div>
+          <div class="feature-icon-badge-row">
+            <div class="feature-icon-wrap feature-icon-cyan">
+              <i data-lucide="folder-search" class="w-5 h-5"></i>
+            </div>
+            <span class="feature-pill-tag tag-cyan">Local Vector Store</span>
+          </div>
+          <h3 class="feature-bento-title">A Document Library</h3>
+          <p class="feature-bento-desc">
+            Organize and index PDFs, DOCX files, and text policies in seconds. Add, re-index, or securely delete files from your local workspace with zero cloud footprint.
+          </p>
+        </div>
+
+        <!-- Embedded Mini Ingestion Widget -->
+        <div class="feature-mini-widget">
+          <div class="mini-widget-header">
+            <span class="flex items-center gap-1.5 font-medium text-slate-300">
+              <i data-lucide="hard-drive" class="w-3.5 h-3.5 text-cyan-400"></i>
+              Indexed Files
+            </span>
+            <span class="mono text-[10px] text-cyan-400">3 files ready</span>
+          </div>
+          <div class="mini-item-row">
+            <span class="truncate max-w-[160px] text-slate-200">Tender_RFP_Compliance.docx</span>
+            <span class="text-emerald-400 text-[11px] font-semibold">Indexed</span>
+          </div>
+          <div class="mini-item-row">
+            <span class="truncate max-w-[160px] text-slate-200">Logistics_SLA_Operations.pdf</span>
+            <span class="text-emerald-400 text-[11px] font-semibold">Indexed</span>
+          </div>
+        </div>
       </article>
     </div>
   </div>
