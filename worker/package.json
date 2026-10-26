@@ -1,0 +1,16 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "GitHub Pages serves the website but cannot run the Node email server or safely store a Resend API key. This Cloudflare Worker provides the small email endpoint used by the hosted demo. It does not process payments or create real subscriptions.",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "wrangler": "^4.153.0"
+  }
+}

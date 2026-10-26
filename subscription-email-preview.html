@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VaultAI Email Preview</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { margin:0; padding:30px 14px; background:#f3f0e8; color:#292d2a; font-family:Arial,Helvetica,sans-serif; }
+    .notice { max-width:680px; margin:0 auto 14px; padding:12px 15px; border:1px solid #e5d3a8; border-radius:9px; background:#fff8e7; color:#725b21; font-size:13px; line-height:1.5; }
+    .subject { max-width:680px; margin:0 auto 14px; color:#55584f; font-size:14px; }
+    .subject strong { color:#252a26; }
+    .mail { max-width:680px; margin:0 auto; background:#fffefa; border:1px solid #e8e2d7; border-radius:14px; overflow:hidden; box-shadow:0 10px 35px rgba(47,42,31,.08); }
+    .brand { padding:22px 30px; border-bottom:1px solid #eee9df; font-size:19px; font-weight:700; color:#242925; }
+    .brand-mark { display:inline-flex; width:30px; height:30px; margin-right:9px; align-items:center; justify-content:center; border-radius:8px; background:#f8e9e2; color:#bf684f; font-size:15px; }
+    .content { padding:32px 30px; }
+    h1 { margin:0 0 14px; font-size:25px; line-height:1.25; color:#252a26; }
+    p { color:#62675f; font-size:15px; line-height:1.65; }
+    .status { margin:22px 0; padding:17px 19px; border:1px solid #dce8dc; border-radius:10px; background:#f4f8f1; color:#385b43; line-height:1.6; }
+    .details { width:100%; border-collapse:collapse; margin:16px 0 24px; }
+    .details td { padding:11px 0; border-bottom:1px solid #eee9df; font-size:14px; }
+    .details td:first-child { color:#77796f; width:42%; }
+    .details td:last-child { color:#292d2a; font-weight:600; }
+    .key-label { margin:0 0 9px; color:#3c413a; font-size:14px; font-weight:700; }
+    .key { padding:15px; border:1px dashed #d7cfc1; border-radius:9px; background:#faf8f2; color:#33372f; font-family:Consolas,monospace; font-size:17px; font-weight:700; letter-spacing:1px; overflow-wrap:anywhere; }
+    .custom { display:none; margin:18px 0; padding:15px 17px; border:1px solid #ecd8c8; border-radius:9px; background:#fff7f1; color:#704c3e; font-size:14px; line-height:1.6; }
+    .button { display:inline-block; margin:20px 0 8px; padding:13px 20px; background:#bd674e; color:#fff; text-decoration:none; border-radius:8px; font-size:14px; font-weight:700; }
+    .fine { color:#85877f; font-size:12px; line-height:1.6; }
+    .footer { padding:20px 30px; background:#faf8f2; border-top:1px solid #eee9df; color:#85877f; font-size:12px; line-height:1.6; }
+    @media (max-width:520px) { body { padding:18px 10px; } .content { padding:25px 19px; } .brand,.footer { padding-left:19px; padding-right:19px; } h1 { font-size:22px; } }
+  </style>
+</head>
+<body>
+  <div id="delivery-notice" class="notice"><strong>Demo preview only.</strong> No payment was collected. This is a copy of the confirmation email, not an app activation license.</div>
+  <div class="subject">Subject: <strong id="subject-text">Your VaultAI demo access is active</strong></div>
+
+  <div class="mail">
+    <div class="brand"><span class="brand-mark">V</span>VaultAI</div>
+    <div class="content">
+      <p style="margin:0 0 8px;color:#76806f;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase">Demo subscription confirmation</p>
+      <h1>Your demo access is ready</h1>
+      <p>Hello <span id="customer-name">Alex Morgan</span>,</p>
+      <p>This message previews the confirmation a VaultAI customer could receive. Your sample access is active through the date below.</p>
+
+      <div class="status"><strong>Active through <span id="active-until">26 November 2026</span></strong><br /><span style="font-size:13px;color:#62675f;">Demo access period: one month</span></div>
+      <div id="custom-delivery" class="custom"><strong>Custom software delivery</strong><br />We will provide your customised VaultAI software in 2–3 working days.</div>
+
+      <table class="details" role="presentation">
+        <tr><td>Plan</td><td id="plan-name">Basic Workspace</td></tr>
+        <tr><td>Started</td><td id="start-date">26 October 2026</td></tr>
+        <tr><td>Active through</td><td id="until-date">26 November 2026</td></tr>
+        <tr><td>Illustrative monthly price</td><td id="amount">₹2,699</td></tr>
+        <tr><td>Email status</td><td id="email-state">Preview only</td></tr>
+      </table>
+
+      <p class="key-label">Demo product key <span style="color:#85877f;font-weight:400;">(not an app activation code)</span></p>
+      <div class="key" id="product-key">VAI-DEMO-8K4P-2N7R</div>
+
+      <p>To install VaultAI, download the Windows package, extract the archive, and run <strong>VaultAI.exe</strong> from the extracted folder.</p>
+      <a class="button" href="downloads/VaultAI-Windows.zip">Download VaultAI for Windows</a>
+      <p class="fine">This is a demo only. No payment was collected, no actual subscription was created, and the demo key cannot activate the app.</p>
+    </div>
+    <div class="footer">
+      VaultAI · Presentation demo<br />
+      This is a preview of the message content for the email address entered during demo checkout.
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const values = {
+      name: params.get('name'),
+      email: params.get('email'),
+      plan: params.get('plan'),
+      amount: params.get('amount'),
+      start: params.get('start'),
+      until: params.get('until'),
+      key: params.get('key'),
+      emailSent: params.get('emailSent'),
+      customDelivery: params.get('customDelivery')
+    };
+    if (values.name) document.getElementById('customer-name').textContent = values.name;
+    if (values.plan) {
+      document.getElementById('plan-name').textContent = values.plan;
+      document.getElementById('subject-text').textContent = 'Your VaultAI ' + values.plan + ' demo access is active';
+    }
+    if (values.amount) document.getElementById('amount').textContent = '₹' + values.amount;
+    if (values.start) document.getElementById('start-date').textContent = values.start;
+    if (values.until) {
+      document.getElementById('active-until').textContent = values.until;
+      document.getElementById('until-date').textContent = values.until;
+    }
+    if (values.key) document.getElementById('product-key').textContent = values.key;
+    if (values.plan && values.plan.toLowerCase().includes('custom')) document.getElementById('custom-delivery').style.display = 'block';
+    if (values.emailSent === 'true') {
+      document.getElementById('email-state').textContent = 'Sent to ' + (values.email || 'customer');
+      document.getElementById('delivery-notice').innerHTML = '<strong>Email sent.</strong> This page is a browser preview of the message delivered to ' + (values.email || 'the customer') + '. No payment was collected.';
+    } else if (values.emailSent === 'false') {
+      document.getElementById('email-state').textContent = 'Not sent · preview only';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vaultai-demo-email",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-26",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://msaad-shaikh.github.io",
+    "PUBLIC_BASE_URL": "https://msaad-shaikh.github.io/VaultAi-Site",
+    "EMAIL_FROM_ADDRESS": "VaultAI <onboarding@resend.dev>"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

@@ -60,9 +60,9 @@
         <span>View plans</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
-      <a href="#how" class="btn btn-secondary px-6 py-3 text-base">
-        <span>See How It Works</span>
-        <i data-lucide="play" class="w-4 h-4"></i>
+      <a href="downloads/VaultAI-Windows.zip" download="VaultAI-Windows.zip" class="btn btn-secondary px-6 py-3 text-base">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Download for Windows</span>
       </a>
     </div>
 
@@ -148,6 +148,24 @@
 <!-- ── Pricing ── -->
 <section class="py-24 border-t border-slate-800/80 bg-slate-950/30" id="pricing">
   <div class="container pricing-wrapper">
+    <!-- Download callout strip -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12 rounded-xl border border-indigo-500/20 bg-indigo-500/5 px-5 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 shrink-0 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-300">
+          <i data-lucide="package" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-white leading-tight">VaultAI for Windows · ~47 MB ZIP</p>
+          <p class="text-xs text-slate-400 mt-0.5">Extract and run <code class="mono text-indigo-300">VaultAI.exe</code> — no installer needed.</p>
+        </div>
+      </div>
+      <a href="downloads/VaultAI-Windows.zip" download="VaultAI-Windows.zip"
+         class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2.5 transition-colors">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        Download Windows ZIP
+      </a>
+    </div>
+
     <div class="text-center max-w-2xl mx-auto mb-14">
       <div class="badge mb-3">
         <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-400"></i>
@@ -255,6 +273,7 @@
 
 
           <!-- Action Button -->
+          <p class="mt-2 mb-4 text-xs text-slate-300">We will provide your customised software in <strong class="text-white">2–3 working days</strong>.</p>
           <a href="payment.html?plan=custom" class="pricing-action-btn btn-blue" id="cta-custom">
             Get Custom Workspace License
           </a>
@@ -361,7 +380,7 @@
           <li><a href="#pricing" class="footer-link">Workspace Pricing</a></li>
           <li><a href="#faq" class="footer-link">FAQ & Technical Specs</a></li>
           <li><a href="mailto:support@vaultai.local" class="footer-link">Contact Support</a></li>
-          <li><a href="login.html" class="footer-link">Customer License Portal</a></li>
+          <li><a href="payment.html?plan=basic" class="footer-link">Download VaultAI</a></li>
           <li><a href="#how" class="footer-link">Windows Setup Guide</a></li>
         </ul>
       </div>
@@ -369,7 +388,7 @@
       <!-- Col 5: Actions & Copyright -->
       <div class="footer-cta-col">
         <a href="#pricing" class="footer-btn-blue">Get Workspace License</a>
-        <a href="signup.html" class="footer-btn-dark">Start Free Trial</a>
+        <a href="payment.html?plan=basic" class="footer-btn-dark">Try the demo</a>
         <p class="footer-copyright-text">
           © 2026 VaultAI Technologies Inc. All rights reserved.<br />
           Private offline document intelligence on your own hardware.
