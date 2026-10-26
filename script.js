@@ -53,3 +53,23 @@ function showNotif(msg, duration = 3000) {
 // expose globally
 window.showNotif = showNotif;
 
+
+// Launch offer countdown through November 30, 2026 (India Standard Time).
+const countdownEls = document.querySelectorAll('.countdown-days');
+if (countdownEls.length) {
+  const offerDeadline = new Date('2026-11-30T23:59:59+05:30').getTime();
+  const padTime = value => String(value).padStart(2, '0');
+  function updateOfferCountdown() {
+    const remaining = Math.max(0, Math.floor((offerDeadline - Date.now()) / 1000));
+    const days = Math.floor(remaining / 86400);
+    const hours = Math.floor((remaining % 86400) / 3600);
+    const minutes = Math.floor((remaining % 3600) / 60);
+    const seconds = remaining % 60;
+    document.querySelectorAll('.countdown-days').forEach(el => el.textContent = padTime(days));
+    document.querySelectorAll('.countdown-hrs').forEach(el => el.textContent = padTime(hours));
+    document.querySelectorAll('.countdown-mins').forEach(el => el.textContent = padTime(minutes));
+    document.querySelectorAll('.countdown-secs').forEach(el => el.textContent = padTime(seconds));
+  }
+  updateOfferCountdown();
+  window.setInterval(updateOfferCountdown, 1000);
+}
