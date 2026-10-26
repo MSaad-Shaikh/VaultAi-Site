@@ -1,6 +1,5 @@
 /*
-  Set this to your deployed Cloudflare Worker URL, without a trailing slash.
-  Example: https://vaultai-demo-email.your-account.workers.dev
-  Leave blank for the local Node demo server.
+  Deployed Cloudflare Worker endpoint for the VaultAI demo email service.
+  Do NOT add a trailing slash.
 */
-window.VAULTAI_DEMO_API_BASE_URL = '';
+window.VAULTAI_DEMO_API_BASE_URL = 'https://vaultai-demo-email.msaadshaikh.workers.dev';
