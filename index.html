@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VaultAI — Search your company documents</title>
   <meta name="description" content="Search company policies, tenders and operating documents with VaultAI. Ask questions and check the source passages behind each answer." />
-  
+
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <!-- Custom Design Tokens & Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -24,9 +24,10 @@
       </div>
       <span>Vault<span class="text-indigo-400">AI</span></span>
     </a>
-    
+
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
       <li><a href="#comparison">Why VaultAI</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -44,7 +45,7 @@
 <!-- ── Hero ── -->
 <section class="hero-section">
   <div class="hero-glow"></div>
-  
+
   <div class="container hero-content">
     <h1 class="hero-title reveal reveal-delay-1">
       Find answers in your company documents.<br />
@@ -60,10 +61,7 @@
         <span>View plans</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
-      <a href="downloads/VaultAI-Windows.zip" download="VaultAI-Windows.zip" class="btn btn-secondary px-6 py-3 text-base">
-        <i data-lucide="download" class="w-4 h-4"></i>
-        <span>Download for Windows</span>
-      </a>
+
     </div>
 
     <!-- Preview mockup -->
@@ -83,8 +81,8 @@
         </div>
         <div class="bg-slate-950 p-2">
           <img
-            src="app-preview.jpeg"
-            alt="VaultAI MVP workspace showing indexed documents and a question prompt"
+            src="assets/vaultai-chat-workspace.png"
+            alt="VaultAI chat workspace with document actions and a question composer"
             class="w-full rounded-b-lg border border-slate-800/80 shadow-2xl object-cover"
           />
         </div>
@@ -126,6 +124,37 @@
     </div>
 </div>
 </section>
+<section class="screenshots-section" id="screenshots">
+  <div class="container">
+    <div class="screenshots-heading">
+      <span class="screenshots-kicker">Inside VaultAI</span>
+      <h2>A closer look at the workspace</h2>
+      <p>Real screens from the current VaultAI MVP.</p>
+    </div>
+    <div class="screenshots-grid">
+      <figure class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="assets/vaultai-tender-analysis.jpeg" alt="VaultAI tender analysis screen showing a profitability review and supporting figures" loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <span class="screenshot-label">DOCUMENT ACTIONS</span>
+          <h3>Review a tender</h3>
+          <p>Run a focused analysis and scan the key figures and findings.</p>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="assets/vaultai-document-repository.jpeg" alt="VaultAI document repository with indexed files and file management actions" loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <span class="screenshot-label">DOCUMENT REPOSITORY</span>
+          <h3>Keep indexed files organized</h3>
+          <p>Browse the workspace library and open, re-index, or remove a document.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 <!-- ── Why VaultAI ── -->
 <section class="comparison-section" id="comparison">
   <div class="comparison-container">
@@ -148,24 +177,6 @@
 <!-- ── Pricing ── -->
 <section class="py-24 border-t border-slate-800/80 bg-slate-950/30" id="pricing">
   <div class="container pricing-wrapper">
-    <!-- Download callout strip -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-12 rounded-xl border border-indigo-500/20 bg-indigo-500/5 px-5 py-4">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 shrink-0 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-300">
-          <i data-lucide="package" class="w-4 h-4"></i>
-        </div>
-        <div>
-          <p class="text-sm font-semibold text-white leading-tight">VaultAI for Windows · ~47 MB ZIP</p>
-          <p class="text-xs text-slate-400 mt-0.5">Extract and run <code class="mono text-indigo-300">VaultAI.exe</code> — no installer needed.</p>
-        </div>
-      </div>
-      <a href="downloads/VaultAI-Windows.zip" download="VaultAI-Windows.zip"
-         class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2.5 transition-colors">
-        <i data-lucide="download" class="w-4 h-4"></i>
-        Download Windows ZIP
-      </a>
-    </div>
-
     <div class="text-center max-w-2xl mx-auto mb-14">
       <div class="badge mb-3">
         <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-400"></i>

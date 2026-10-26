@@ -156,7 +156,8 @@ async function handlePost(request, env, origin) {
 
   const result = await apiResponse.json().catch(() => ({}));
   if (!apiResponse.ok) {
-    return json({ success: false, message: 'Email was not sent. Check the Resend key, sender, and recipient settings.' }, 502, origin);
+    const resendMsg = (result.name ? result.name + ': ' : '') + (result.message || JSON.stringify(result));
+    return json({ success: false, message: 'Resend rejected the email — ' + resendMsg }, 502, origin);
   }
 
   return json({

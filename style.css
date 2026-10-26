@@ -1274,3 +1274,90 @@ body {
   .setup-heading { align-items: flex-start; flex-direction: column; }
   .how-it-works-box { padding: 22px 17px; }
 }
+/* Product screenshots */
+.screenshots-section {
+  padding: 84px 0 92px;
+  border-top: 1px solid rgba(148, 163, 184, 0.13);
+  background: rgba(2, 6, 23, 0.22);
+}
+.screenshots-heading {
+  max-width: 680px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+.screenshots-kicker {
+  color: #8da3ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.screenshots-heading h2 {
+  margin: 10px 0 8px;
+  color: #f8fafc;
+  font-size: clamp(27px, 3.5vw, 38px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+.screenshots-heading p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.screenshot-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(17, 24, 39, 0.92), rgba(10, 15, 25, 0.9));
+}
+.screenshot-frame {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  overflow: hidden;
+  background: #080a10;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.13);
+}
+.screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+}
+.screenshot-card figcaption { padding: 18px 20px 20px; }
+.screenshot-label {
+  color: #8da3ff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.screenshot-card h3 {
+  margin: 6px 0 5px;
+  color: #f8fafc;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.screenshot-card p {
+  margin: 0;
+  color: #9aa8bd;
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 720px) {
+  .screenshots-section { padding: 66px 0 72px; }
+  .screenshots-grid { grid-template-columns: 1fr; gap: 14px; }
+  .screenshots-heading { margin-bottom: 26px; text-align: left; }
+  .screenshot-frame { min-height: 0; }
+  .screenshot-card figcaption { padding: 16px; }
+}
