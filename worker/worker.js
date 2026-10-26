@@ -92,7 +92,7 @@ function emailText(order, downloadUrl) {
 }
 
 async function handlePost(request, env, origin) {
-  if (!env.RESEND_API_KEY || !env.DEMO_RECIPIENT_EMAIL || !env.PUBLIC_BASE_URL) {
+  if (!env.RESEND_API_KEY || !env.PUBLIC_BASE_URL) {
     return json({ success: false, message: 'The demo email service is not fully configured.' }, 503, origin);
   }
 
@@ -115,9 +115,6 @@ async function handlePost(request, env, origin) {
 
   if (!name || !email || !plan || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return json({ success: false, message: 'Enter your name, a valid email address, and choose a plan.' }, 400, origin);
-  }
-  if (email !== env.DEMO_RECIPIENT_EMAIL.trim().toLowerCase()) {
-    return json({ success: false, message: 'This presentation demo can only email its configured recipient.' }, 403, origin);
   }
 
   const now = new Date();
